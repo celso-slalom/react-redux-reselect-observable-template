@@ -1,4 +1,3 @@
-// tslint:disable-next-line:ordered-imports
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
