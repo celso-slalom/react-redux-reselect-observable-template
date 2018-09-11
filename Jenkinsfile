@@ -5,6 +5,10 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
+    parameters {
+        string(name: 'BucketName', defaultValue: 'bb8-test-celso', description: 'Bucket name to deploy')
+        string(name: 'AWS Credentials ID', description: 'The AWS credentials ID of type usename and password')
+    }
     environment {
         CI = 'true'
     }
@@ -27,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 withAWS(credentials: '5766a5cb-7ee9-4d29-b098-71238516a4f9') {
-                    s3Upload(bucket:"bb8-test-celso", path:'/', includePathPattern:'**/*', workingDir:'/dist')
+                    s3Upload(bucket:"${params.BucketName}", path:'/', includePathPattern:'**/*', workingDir:'/dist')
                 }
             }
         }
