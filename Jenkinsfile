@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                withAWS(credentials: '5766a5cb-7ee9-4d29-b098-71238516a4f9') {
+                withAWS(credentials: '5766a5cb-7ee9-4d29-b098-71238516a4f9', region: 'us-east-1') {
                     s3Upload(bucket:"${params.BucketName}", path:'/', includePathPattern:'**/*', workingDir:'build')
                 }
             }
