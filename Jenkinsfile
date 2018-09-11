@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                withAWS(credentials: 'AKIAI24LXA6OHB2BRG2Q') {
+                withAWS(credentials: '5766a5cb-7ee9-4d29-b098-71238516a4f9') {
                     s3Upload(bucket:"bb8-test-celso", path:'/', includePathPattern:'**/*', workingDir:'dist')
                 }
             }
