@@ -14,10 +14,10 @@ const todosReducer = (state = [], action) => {
         item =>
           item.id === action.payload.id
             ? {
-              ...item,
-              done: !item.done,
-            }
-            : item,
+                ...item,
+                done: !item.done,
+              }
+            : item
       );
     }
     case getType(todos.changeFilter): {
@@ -27,7 +27,6 @@ const todosReducer = (state = [], action) => {
       return [...action.payload];
     }
     case getType(todos.fetchTodos.failure): {
-      console.error(action.payload);
       return [...state];
     }
     default:
